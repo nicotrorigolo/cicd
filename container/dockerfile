@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+# Desactivation du reglage creneaux horaire
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Mise à jour ubuntu
+RUN apt-get -y update \
+&& apt-get -y upgrade
+
+# Installation de python et de pip
+RUN apt-get -y install pip
+
+# Installation library python
+RUN pip install flask
+
+# # Exposition de l'application sur un port
+# EXPOSE 5000
+
+# Declaration de l'espace de travail
+WORKDIR /home
+
+# Pour se connecter a l'appli : http://127.0.0.1:5000/
